@@ -1,0 +1,31 @@
+name: 'Ancycle Check'
+description: 'Runs Z3 Formal Verification on your dbt manifest to block PRs with logical contradictions'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  manifest_path:
+    description: 'Path to your compiled dbt manifest.json'
+    required: true
+    default: 'target/manifest.json'
+  
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Run Ancycle Z3 Verification
+      shell: bash
+      run: |
+        echo "Running Ancycle Z3 Verification on manifest: ${{ inputs.manifest_path }}"
+        
+        # Install Ancycle dependencies locally
+        cd ${{ github.action_path }}
+        bun install --production
+        
+        # Execute the verification CLI
+        bun run src/cli/dbt-run.ts --manifest ${{ github.workspace }}/${{ inputs.manifest_path }}

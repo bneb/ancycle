@@ -1,0 +1,18 @@
+name: Ancycle PR Verification
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Ancycle Z3 Verification
+        uses: ./
+        with:
+          manifest_path: 'tests/fixtures/manifest.json'

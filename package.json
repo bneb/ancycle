@@ -1,0 +1,24 @@
+{
+  "name": "ancycle",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "workspaces": ["web"],
+  "scripts": {
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tree-sitter-cli": "^0.26.9"
+  },
+  "peerDependencies": {
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "@derekstride/tree-sitter-sql": "^0.3.11",
+    "@types/node": "^25.5.0",
+    "ts-node": "^10.9.2",
+    "web-tree-sitter": "^0.26.9",
+    "z3-solver": "^4.16.0"
+  }
+}

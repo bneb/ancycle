@@ -1,0 +1,70 @@
+---
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+---
+
+<DashboardLayout title="Overview">
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm relative overflow-hidden group hover:border-white/20 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="flex justify-between items-start mb-4 relative z-10">
+                <div class="p-3 bg-blue-500/20 text-blue-400 rounded-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-1 relative z-10">42</h3>
+            <p class="text-gray-400 text-sm relative z-10">Contradictions Prevented</p>
+        </div>
+        
+        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm relative overflow-hidden group hover:border-white/20 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10">
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="flex justify-between items-start mb-4 relative z-10">
+                <div class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-1 relative z-10">1,337</h3>
+            <p class="text-gray-400 text-sm relative z-10">dbt Edges Verified</p>
+        </div>
+        
+        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm relative overflow-hidden group hover:border-white/20 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/10">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="flex justify-between items-start mb-4 relative z-10">
+                <div class="p-3 bg-purple-500/20 text-purple-400 rounded-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-1 relative z-10">1.2s</h3>
+            <p class="text-gray-400 text-sm relative z-10">Average Z3 Proof Time</p>
+        </div>
+    </div>
+
+    <!-- Active Projects -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8 backdrop-blur-sm shadow-xl">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold font-outfit text-white">Active Projects</h2>
+            <button class="text-sm px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded font-medium transition-colors border border-white/10">Add Project</button>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-black/40 rounded-xl border border-white/5 hover:border-white/10 transition-colors cursor-pointer group">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:shadow-indigo-500/30 transition-shadow">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-white group-hover:text-blue-400 transition-colors">acme-corp/data-warehouse</h4>
+                        <p class="text-sm text-gray-400">12 models • Last checked 10m ago</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-sm font-medium text-emerald-400">Protected</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</DashboardLayout>
