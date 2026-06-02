@@ -38,7 +38,10 @@ export function parseDbtManifest(manifest: DbtManifest) {
     for (const [nodeId, node] of Object.entries(manifest.nodes)) {
         if (node.resource_type === 'model') {
             const sql = node.compiled_code || node.raw_code || '';
+            console.log(`[Ancycle-Debug] Parsing model ${node.name}, sql length: ${sql.length}, has_compiled_code: ${!!node.compiled_code}`);
+            if (sql) console.log(`[Ancycle-Debug] SQL preview: ${sql.slice(0, 100).replace(/\n/g, ' ')}...`);
             const sqlMetadata = sql ? analyzeSqlNode(node.name, sql) : null;
+            if (sqlMetadata) console.log(`[Ancycle-Debug] Extracted assertions for ${node.name}: ${JSON.stringify(sqlMetadata.z3Assertions)}`);
             const modelMeta = { name: node.name, nodeId, sqlMetadata };
             models.push(modelMeta);
             modelMap.set(nodeId, modelMeta);
