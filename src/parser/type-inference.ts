@@ -101,6 +101,11 @@ export function inferTypes(expr: Expr): Record<string, SmtType> {
                     vars[varName] = contextType || 'String';
                 }
             }
+            // Visit arguments!
+            const argType = ['DATE_ADD', 'DATE_SUB'].includes(uName) ? 'Int' : null;
+            for (const arg of node.args) {
+                visit(arg, argType);
+            }
         }
     }
 
