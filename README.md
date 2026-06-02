@@ -2,7 +2,7 @@
 
 **Stop merging silent data bugs. Bring Formal Verification to your SQL pipelines.**
 
-[![Ancycle Check](https://github.com/kevin/ancycle/actions/workflows/ancycle-pr.yml/badge.svg)](https://github.com/kevin/ancycle/actions/workflows/ancycle-pr.yml)
+[![Ancycle Check](https://github.com/bneb/ancycle/actions/workflows/ancycle-pr.yml/badge.svg)](https://github.com/bneb/ancycle/actions/workflows/ancycle-pr.yml)
 
 Ancycle is a formal verification and static analysis engine for data engineers. By translating your `dbt` models into mathematical constraints, Ancycle uses Microsoft's **Z3 Theorem Prover** to guarantee the absence of logical contradictions across your entire Directed Acyclic Graph (DAG) before your code is ever merged.
 
@@ -59,7 +59,7 @@ jobs:
         run: dbt compile
         
       - name: Run Ancycle Z3 Verification
-        uses: kevin/ancycle@v1
+        uses: bneb/ancycle@v1
         with:
           manifest_path: 'target/manifest.json'
 ```
